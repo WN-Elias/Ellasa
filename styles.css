@@ -2,7 +2,10 @@
    Ellasa — Barbershop
    Design system (forked from the house style used across the sites,
    see bahn-bildung-nord/styles.css).
-   Theme: LIGHT page, DARK hero only — every other section is light.
+   Theme: DARK throughout — small, grounded neighbourhood barbershop
+   feel rather than a light corporate look. The hero's photo-texture
+   background and the rest of the page now share the same dark base,
+   with cards one step lighter for layering.
    Accents: TWO — barber-blue is the PRIMARY accent used everywhere
    siblings use their one accent (buttons, links, focus, eyebrow rule).
    barber-red is a SECONDARY, sparing highlight used only at named
@@ -12,22 +15,22 @@
    ============================================================ */
 
 :root{
-  --bg:          #f6f6f5;   /* light neutral off-white — page body */
-  --bg-2:        #ffffff;   /* elevated surface / cards */
-  --bg-3:        #eeeeec;   /* tinted light band */
-  --ink:         #1c1d1f;   /* anthracite — hero + footer-brand only */
-  --text:        #17181a;
-  --muted:       #5c5f63;
-  --muted-2:     #94979c;
-  --line:        rgba(23,24,26,.10);
-  --line-2:      rgba(23,24,26,.16);
+  --bg:          #121212;   /* near-black — page body */
+  --bg-2:        #1b1b1b;   /* elevated surface / cards */
+  --bg-3:        #232323;   /* tinted band, one step up from bg-2 */
+  --ink:         #2e2e2e;   /* dark neutral block, for tiles/avatars on cards */
+  --text:        #f3f2f0;
+  --muted:       #a9a9a6;
+  --muted-2:     #75746f;
+  --line:        rgba(255,255,255,.09);
+  --line-2:      rgba(255,255,255,.16);
 
   --accent:      #1F5FBF;   /* barber-blue — primary accent */
-  --accent-hover:#184b96;
+  --accent-hover:#3572cc;
   --accent-ink:  #ffffff;
 
   --accent-2:      #C62828; /* barber-red — secondary, sparing accent */
-  --accent-2-hover:#a81f1f;
+  --accent-2-hover:#d94040;
   --accent-2-ink:  #ffffff;
 
   --steel:       #2b2d31;   /* deep steel for hero texture */
@@ -93,7 +96,7 @@ section[id]{ scroll-margin-top:88px; }
 .badge-walkin svg{ width:17px; height:17px; color:var(--accent-2); flex:0 0 auto; }
 .badge-walkin.on-light{
   background:var(--bg-2); border-color:var(--line-2); color:var(--text);
-  box-shadow:0 8px 20px rgba(20,24,28,.06);
+  box-shadow:0 8px 20px rgba(0,0,0,.35);
 }
 .badge-walkin.on-light svg{ color:var(--accent); }
 
@@ -112,7 +115,7 @@ section[id]{ scroll-margin-top:88px; }
 .callout-dark p{ color:rgba(255,255,255,.9); }
 .callout-light{
   background:var(--bg-2); border:1px solid var(--line-2);
-  box-shadow:0 14px 34px rgba(20,24,28,.06);
+  box-shadow:0 14px 34px rgba(0,0,0,.35);
 }
 .callout-light svg{ color:var(--accent); }
 .callout-light p{ color:var(--text); }
@@ -121,7 +124,7 @@ section[id]{ scroll-margin-top:88px; }
 /* ---------- nav ---------- */
 header.nav{
   position:sticky; top:0; z-index:50; height:70px; display:flex; align-items:center;
-  background:rgba(246,246,245,.82);
+  background:rgba(18,18,18,.82);
   backdrop-filter:blur(14px) saturate(140%); -webkit-backdrop-filter:blur(14px) saturate(140%);
   border-bottom:1px solid var(--line);
 }
@@ -187,7 +190,7 @@ section:not(.hero){ padding:112px 0; }
   border:1px solid var(--line); border-radius:var(--radius); padding:32px 28px;
   transition:transform .25s var(--ease), box-shadow .25s var(--ease);
 }
-.service-card:hover{ transform:translateY(-4px); box-shadow:0 22px 46px rgba(20,24,28,.08); }
+.service-card:hover{ transform:translateY(-4px); border-color:var(--line-2); box-shadow:0 22px 46px rgba(0,0,0,.5); }
 .icon-tile{
   width:52px; height:52px; border-radius:14px; color:#fff;
   display:flex; align-items:center; justify-content:center; margin-bottom:20px;
@@ -333,7 +336,7 @@ footer{ border-top:1px solid var(--line); padding:60px 0 40px; background:var(--
     display:none; position:absolute; top:70px; left:0; right:0;
     flex-direction:column; align-items:flex-start; gap:.2rem;
     background:var(--bg-2); border-bottom:1px solid var(--line);
-    padding:14px 24px 20px; box-shadow:0 16px 32px rgba(20,24,28,.10);
+    padding:14px 24px 20px; box-shadow:0 16px 32px rgba(0,0,0,.5);
   }
   .nav-links a{ padding:.6rem 0; width:100%; }
   #nav.nav-open .nav-links{ display:flex; }
