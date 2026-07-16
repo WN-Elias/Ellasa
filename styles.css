@@ -47,7 +47,12 @@ html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
 body{
   margin:0; background:var(--bg); color:var(--text);
   font-family:var(--sans); font-size:16px; line-height:1.6; letter-spacing:-.005em;
-  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  /* No overflow-x here on purpose: Safari/WebKit silently breaks
+     position:sticky on any descendant (the hero's pinned video stage)
+     when an ancestor has overflow set to anything but visible. The
+     hero-stage clips its own -4% media bleed itself, so nothing here
+     actually needs body-level clipping. */
 }
 h1,h2,h3,h4{ font-family:var(--display); font-weight:600; line-height:1.04; letter-spacing:-.03em; margin:0; }
 p{ margin:0; }
