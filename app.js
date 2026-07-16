@@ -42,17 +42,6 @@
   var heroSection = document.getElementById('top');
 
   if (!reduce && video && content && scrim2 && heroSection) {
-    // Touch devices (coarse pointer) get an unreliable version of scroll-
-    // scrubbing: touch/momentum scrolling fires scroll events irregularly,
-    // and some mobile browsers (notably iOS Safari) simply never paint a
-    // frame from a video that's only ever been seeked, never played — the
-    // background can stay blank no matter how the seeking is timed. So on
-    // touch devices the video just autoplays + loops normally (guaranteed
-    // to render everywhere); only fine-pointer (mouse) devices get the
-    // precise scroll-tied scrub. The content fade/scrim-darken still
-    // tracks scroll on both.
-    var isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
-
     var ticking = false;
     var videoDuration = 0;
     var lastSeek = 0;
@@ -65,19 +54,14 @@
 
     video.addEventListener('loadedmetadata', function () {
       videoDuration = video.duration || 0;
-      if (isCoarsePointer) {
-        video.loop = true;
-        video.play().catch(function () {});
+      // Playing and immediately pausing "primes" the decoder so the very
+      // first scroll-driven seek actually paints a frame instead of
+      // staying on the poster image. Safe to autoplay: muted + playsinline.
+      var playPromise = video.play();
+      if (playPromise && playPromise.then) {
+        playPromise.then(function () { video.pause(); }).catch(function () {});
       } else {
-        // Priming trick for mouse/desktop: playing and immediately pausing
-        // gets the decoder "warmed up" so the very first scroll-driven
-        // seek actually paints instead of staying on the poster frame.
-        var playPromise = video.play();
-        if (playPromise && playPromise.then) {
-          playPromise.then(function () { video.pause(); }).catch(function () {});
-        } else {
-          video.pause();
-        }
+        video.pause();
       }
     });
 
@@ -89,16 +73,13 @@
       var p = window.scrollY / travel;
       if (p < 0) p = 0; else if (p > 1) p = 1;
 
-      // scroll position scrubs the video's playback position (throttled) —
-      // fine-pointer devices only, see isCoarsePointer above
-      if (!isCoarsePointer) {
-        var now = performance.now();
-        if (videoDuration > 0 && now - lastSeek >= SEEK_INTERVAL_MS) {
-          var t = p * videoDuration;
-          if (Math.abs(video.currentTime - t) > 0.05) {
-            video.currentTime = t;
-            lastSeek = now;
-          }
+      // scroll position scrubs the video's playback position (throttled)
+      var now = performance.now();
+      if (videoDuration > 0 && now - lastSeek >= SEEK_INTERVAL_MS) {
+        var t = p * videoDuration;
+        if (Math.abs(video.currentTime - t) > 0.05) {
+          video.currentTime = t;
+          lastSeek = now;
         }
       }
 
