@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Platzhalter: Rasiermesser-Motiv, hier später ein echtes Barbershop-Foto einsetzen">
+  <defs>
+    <linearGradient id="g3" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#0c0d0f"/>
+      <stop offset="1" stop-color="#26282c"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#g3)"/>
+  <g transform="translate(230,410) rotate(-24)" fill="none" stroke="#1F5FBF" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0 0 L280 0" stroke-width="14"/>
+    <path d="M280 0 C 340 -6, 360 -34, 380 -70" stroke-width="9"/>
+    <rect x="-96" y="-16" width="96" height="32" rx="8"/>
+  </g>
+</svg>

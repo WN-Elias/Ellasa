@@ -1,0 +1,90 @@
+/* Ellasa Barbershop — interactions
+   - scroll-reveal (.reveal -> .in)
+   - magnetic buttons ([data-magnetic])
+   - hero parallax (simple background drift, not pinned)
+   - mobile nav toggle
+   All motion is disabled under prefers-reduced-motion. */
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- scroll reveal ---------- */
+  var els = document.querySelectorAll('.reveal');
+  if (reduce || !('IntersectionObserver' in window)) {
+    els.forEach(function (el) { el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (el) { io.observe(el); });
+  }
+
+  /* ---------- magnetic buttons ---------- */
+  if (!reduce && window.matchMedia('(pointer:fine)').matches) {
+    document.querySelectorAll('[data-magnetic]').forEach(function (btn) {
+      var raf;
+      btn.addEventListener('mousemove', function (e) {
+        var r = btn.getBoundingClientRect();
+        var x = (e.clientX - r.left - r.width / 2) * 0.25;
+        var y = (e.clientY - r.top - r.height / 2) * 0.35;
+        cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(function () { btn.style.transform = 'translate(' + x + 'px,' + y + 'px)'; });
+      });
+      btn.addEventListener('mouseleave', function () { cancelAnimationFrame(raf); btn.style.transform = ''; });
+    });
+  }
+
+  /* ---------- hero parallax (subtle background drift) ---------- */
+  var heroMedia = document.getElementById('hero-media');
+  var heroSection = document.getElementById('top');
+
+  if (!reduce && heroMedia && heroSection) {
+    var ticking = false;
+
+    function renderParallax() {
+      ticking = false;
+      var rect = heroSection.getBoundingClientRect();
+      if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+      heroMedia.style.transform = 'translateY(' + (window.scrollY * 0.15) + 'px)';
+    }
+
+    function onScroll() {
+      if (!ticking) { ticking = true; requestAnimationFrame(renderParallax); }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    renderParallax();
+  }
+
+  /* ---------- mobile nav toggle ---------- */
+  var nav = document.getElementById('nav');
+  var navToggle = document.getElementById('nav-toggle');
+  var navLinks = document.getElementById('nav-links');
+
+  if (nav && navToggle && navLinks) {
+    function closeNav() {
+      nav.classList.remove('nav-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }
+    function openNav() {
+      nav.classList.add('nav-open');
+      navToggle.setAttribute('aria-expanded', 'true');
+    }
+
+    navToggle.addEventListener('click', function () {
+      if (nav.classList.contains('nav-open')) closeNav(); else openNav();
+    });
+    navLinks.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', closeNav);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeNav();
+    });
+    document.addEventListener('click', function (e) {
+      if (!nav.classList.contains('nav-open')) return;
+      if (!nav.contains(e.target)) closeNav();
+    });
+  }
+})();
