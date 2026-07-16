@@ -54,6 +54,17 @@
 
     video.addEventListener('loadedmetadata', function () {
       videoDuration = video.duration || 0;
+      // iOS Safari (and some other mobile browsers) won't paint any frame
+      // from a video that has only ever been seeked, never played — the
+      // background stays blank. Playing and immediately pausing "primes"
+      // the decoder so later scroll-driven seeks actually render. Safe to
+      // autoplay here since the video is muted + playsinline.
+      var playPromise = video.play();
+      if (playPromise && playPromise.then) {
+        playPromise.then(function () { video.pause(); }).catch(function () {});
+      } else {
+        video.pause();
+      }
     });
 
     function renderHero() {
