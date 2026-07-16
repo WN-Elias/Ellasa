@@ -44,6 +44,13 @@
   if (!reduce && video && content && scrim2 && heroSection) {
     var ticking = false;
     var videoDuration = 0;
+    var lastSeek = 0;
+    // Minimum time between video seeks. Seeking decodes forward from the
+    // last keyframe, which is far more expensive than normal playback —
+    // doing it on every scroll frame (~60/s) is what causes stutter.
+    // ~12 scrub-updates/sec still reads as smooth motion but cuts the
+    // decode load roughly 5x.
+    var SEEK_INTERVAL_MS = 80;
 
     video.addEventListener('loadedmetadata', function () {
       videoDuration = video.duration || 0;
@@ -57,10 +64,14 @@
       var p = window.scrollY / travel;
       if (p < 0) p = 0; else if (p > 1) p = 1;
 
-      // scroll position scrubs the video's playback position
-      if (videoDuration > 0) {
+      // scroll position scrubs the video's playback position (throttled)
+      var now = performance.now();
+      if (videoDuration > 0 && now - lastSeek >= SEEK_INTERVAL_MS) {
         var t = p * videoDuration;
-        if (Math.abs(video.currentTime - t) > 0.01) video.currentTime = t;
+        if (Math.abs(video.currentTime - t) > 0.05) {
+          video.currentTime = t;
+          lastSeek = now;
+        }
       }
 
       // overlay darkens as the next section rises over the hero
