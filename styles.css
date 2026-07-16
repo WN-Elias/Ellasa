@@ -199,25 +199,6 @@ section:not(.hero){ padding:112px 0; }
 .intro-narrow p{ color:var(--muted); font-size:1.08rem; margin-top:1.2rem; }
 .intro-narrow p + p{ margin-top:1rem; }
 
-/* ---------- leistungen (service cards) ---------- */
-.services-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
-.service-card{
-  display:flex; flex-direction:column; background:var(--bg-2);
-  border:1px solid var(--line); border-radius:var(--radius); padding:32px 28px;
-  transition:transform .25s var(--ease), box-shadow .25s var(--ease);
-}
-.service-card:hover{ transform:translateY(-4px); border-color:var(--line-2); box-shadow:0 22px 46px rgba(0,0,0,.5); }
-.icon-tile{
-  width:52px; height:52px; border-radius:14px; color:#fff;
-  display:flex; align-items:center; justify-content:center; margin-bottom:20px;
-}
-.icon-tile svg{ width:25px; height:25px; }
-.icon-tile.tile-blue{ background:var(--accent); }
-.icon-tile.tile-red{ background:var(--accent-2); }
-.icon-tile.tile-ink{ background:var(--ink); }
-.service-card h3{ font-size:1.32rem; margin:0 0 .7rem; }
-.service-card p{ color:var(--muted); font-size:.98rem; flex:1 0 auto; }
-
 /* ---------- preise ---------- */
 .price-list{ background:var(--bg-2); border:1px solid var(--line); border-radius:var(--radius); padding:8px 36px; max-width:720px; }
 .price-row{ display:flex; align-items:baseline; gap:14px; padding:20px 0; border-bottom:1px solid var(--line); }
@@ -236,38 +217,6 @@ section:not(.hero){ padding:112px 0; }
 .gallery-item:hover{ transform:scale(1.02); }
 .gallery-grid .gallery-item:nth-child(1),
 .gallery-grid .gallery-item:nth-child(6){ grid-row:span 2; }
-
-/* ---------- warum ellasa (light tinted band) ---------- */
-.band-light{ background:var(--bg-3); }
-.benefit-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:30px 34px; }
-.benefit{ display:flex; gap:14px; align-items:flex-start; }
-.benefit .tick{
-  flex:0 0 auto; width:26px; height:26px; border-radius:999px; margin-top:2px;
-  background:var(--accent); color:#fff; display:flex; align-items:center; justify-content:center;
-}
-.benefit:nth-child(3n+2) .tick{ background:var(--accent-2); }
-.benefit .tick svg{ width:15px; height:15px; }
-.benefit b{ display:block; font-family:var(--display); font-weight:600; font-size:1.03rem; }
-.benefit span{ color:var(--muted); font-size:.95rem; }
-
-/* ---------- so funktioniert's ---------- */
-.steps-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
-.step{
-  background:var(--bg-2); border:1px solid var(--line); border-radius:var(--radius);
-  padding:34px 28px; text-align:center;
-}
-.step-num{
-  width:46px; height:46px; border-radius:999px; margin:0 auto 18px;
-  display:flex; align-items:center; justify-content:center;
-  font-family:var(--display); font-weight:700; font-size:1.15rem; color:#fff;
-}
-.step:nth-child(1) .step-num{ background:var(--accent); }
-.step:nth-child(2) .step-num{ background:var(--accent-2); }
-.step:nth-child(3) .step-num{ background:var(--ink); }
-.step h3{ font-size:1.22rem; margin-bottom:.6rem; }
-.step p{ color:var(--muted); font-size:.95rem; }
-.steps-note{ text-align:center; color:var(--muted); margin-top:40px; font-size:1rem; }
-.steps-note strong{ color:var(--text); }
 
 /* ---------- bewertungen ---------- */
 .testimonial-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
@@ -358,9 +307,6 @@ footer{ border-top:1px solid var(--line); padding:60px 0 40px; background:var(--
   #nav.nav-open .nav-links{ display:flex; }
   .nav-toggle{ display:inline-flex; }
 
-  .services-grid{ grid-template-columns:1fr 1fr; }
-  .benefit-grid{ grid-template-columns:1fr 1fr; }
-  .steps-grid{ grid-template-columns:1fr; }
   .testimonial-grid{ grid-template-columns:1fr; }
   .gallery-grid{ grid-template-columns:1fr 1fr; }
   .hours-layout{ grid-template-columns:1fr; gap:36px; }
@@ -371,8 +317,6 @@ footer{ border-top:1px solid var(--line); padding:60px 0 40px; background:var(--
   section:not(.hero){ padding:78px 0; }
   .hero{ height:190vh; min-height:1180px; }
   .hero-content{ padding:0 20px; }
-  .services-grid{ grid-template-columns:1fr; }
-  .benefit-grid{ grid-template-columns:1fr; }
   .gallery-grid{ grid-template-columns:1fr 1fr; grid-auto-rows:150px; }
   .price-list{ padding:6px 22px; }
   .brand span{ white-space:nowrap; }
