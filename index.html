@@ -46,31 +46,43 @@
   </div>
 </header>
 
-<!-- HERO -->
+<!-- HERO (sticky, scroll-scrubbed product video) -->
 <section class="hero" id="top">
-  <!-- Placeholder: replace assets/hero-barber.svg (in styles.css .hero-media) with a real photo -->
-  <div class="hero-media" id="hero-media"></div>
-  <div class="hero-scrim"></div>
-  <div class="hero-content">
-    <span class="eyebrow on-dark">Ellasa Barbershop</span>
-    <div class="hero-badges">
-      <span class="badge-walkin">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 4h3a2 2 0 0 1 2 2v14"/><path d="M2 20h3"/><path d="M13 20h9"/><path d="M10 12v.01"/><path d="M13 4.562v16.157a1 1 0 0 1-1.242.97L5 20V5.562a2 2 0 0 1 1.515-1.94l4-1A2 2 0 0 1 13 4.561Z"/></svg>
-        Keine Termine erforderlich
-      </span>
+  <div class="hero-stage">
+    <div class="hero-media" id="hero-media">
+      <!-- Scroll-scrubbed: scrolling through the hero drives the video's playback position (see app.js).
+           assets/hero-barber.svg behind it is the instant-paint fallback until the video is ready. -->
+      <video id="hero-video" muted playsinline webkit-playsinline preload="auto" poster="assets/hero-barber.svg">
+        <source src="assets/hero-clipper.mp4" type="video/mp4" />
+      </video>
     </div>
-    <h1>Tradition trifft modernen Style.</h1>
-    <p class="hero-sub">Präzise Haarschnitte, saubere Fades und klassische Rasuren – professionell, entspannt und ohne Termin.</p>
-    <div class="hero-actions">
-      <a href="#oeffnungszeiten" class="btn btn-primary" data-magnetic><span>Jetzt vorbeikommen</span> <span class="btn-arrow">&rarr;</span></a>
-      <a href="#leistungen" class="btn btn-light">Unsere Leistungen</a>
+    <!-- Masks the small "Veo" AI-generation watermark burned into the bottom-right corner of the source clip -->
+    <div class="hero-watermark-mask" aria-hidden="true"></div>
+    <div class="hero-scrim"></div>
+    <div class="hero-scrim-2" id="hero-scrim2"></div>
+
+    <div class="hero-content" id="hero-content">
+      <span class="eyebrow on-dark">Ellasa Barbershop</span>
+      <div class="hero-badges">
+        <span class="badge-walkin">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 4h3a2 2 0 0 1 2 2v14"/><path d="M2 20h3"/><path d="M13 20h9"/><path d="M10 12v.01"/><path d="M13 4.562v16.157a1 1 0 0 1-1.242.97L5 20V5.562a2 2 0 0 1 1.515-1.94l4-1A2 2 0 0 1 13 4.561Z"/></svg>
+          Keine Termine erforderlich
+        </span>
+      </div>
+      <h1>Tradition trifft modernen Style.</h1>
+      <p class="hero-sub">Präzise Haarschnitte, saubere Fades und klassische Rasuren – professionell, entspannt und ohne Termin.</p>
+      <div class="hero-actions">
+        <a href="#oeffnungszeiten" class="btn btn-primary" data-magnetic><span>Jetzt vorbeikommen</span> <span class="btn-arrow">&rarr;</span></a>
+        <a href="#leistungen" class="btn btn-light">Unsere Leistungen</a>
+      </div>
+      <div class="callout callout-dark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 4h3a2 2 0 0 1 2 2v14"/><path d="M2 20h3"/><path d="M13 20h9"/><path d="M10 12v.01"/><path d="M13 4.562v16.157a1 1 0 0 1-1.242.97L5 20V5.562a2 2 0 0 1 1.515-1.94l4-1A2 2 0 0 1 13 4.561Z"/></svg>
+        <p>Bei Ellasa brauchst du keinen Termin. Komm einfach während unserer Öffnungszeiten vorbei – wir kümmern uns um dich.</p>
+      </div>
     </div>
-    <div class="callout callout-dark">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 4h3a2 2 0 0 1 2 2v14"/><path d="M2 20h3"/><path d="M13 20h9"/><path d="M10 12v.01"/><path d="M13 4.562v16.157a1 1 0 0 1-1.242.97L5 20V5.562a2 2 0 0 1 1.515-1.94l4-1A2 2 0 0 1 13 4.561Z"/></svg>
-      <p>Bei Ellasa brauchst du keinen Termin. Komm einfach während unserer Öffnungszeiten vorbei – wir kümmern uns um dich.</p>
-    </div>
+
+    <div class="hero-scrollcue" aria-hidden="true">Scrollen<span></span></div>
   </div>
-  <div class="hero-scrollcue" aria-hidden="true">Scrollen<span></span></div>
 </section>
 
 <!-- ÜBER ELLASA -->

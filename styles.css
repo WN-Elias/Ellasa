@@ -145,21 +145,37 @@ header.nav{
 #nav.nav-open .nav-toggle .icon-menu{ display:none; }
 #nav.nav-open .nav-toggle .icon-x{ display:block; }
 
-/* ---------- hero (static, simple parallax drift — not pinned) ---------- */
-.hero{
-  position:relative; min-height:94vh; display:flex; align-items:center;
-  overflow:hidden; background:var(--ink);
+/* ---------- hero (sticky scroll-scrubbed product video) ----------
+   Extra tall so the sticky stage stays pinned while the scroll position
+   drives the video's currentTime — "scrolling plays the video". */
+.hero{ position:relative; height:210vh; min-height:1500px; }
+.hero-stage{
+  position:sticky; top:0; height:100vh; overflow:hidden;
+  background:var(--ink); display:flex; align-items:center;
 }
-/* placeholder: replace assets/hero-barber.svg with a real photo, or swap this background-image for an <img> */
+/* placeholder background, shown until the video has loaded (see poster attr too) */
 .hero-media{
-  position:absolute; inset:-8%; z-index:1; will-change:transform;
+  position:absolute; inset:-4%; z-index:1;
   background:var(--steel) url("assets/hero-barber.svg") center/cover no-repeat;
 }
-.hero-scrim{
-  position:absolute; inset:0; z-index:2; pointer-events:none;
-  background:linear-gradient(180deg, rgba(8,8,9,.58) 0%, rgba(8,8,9,.34) 40%, rgba(8,8,9,.84) 100%);
+.hero-media video{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
 }
-.hero-content{ position:relative; z-index:5; max-width:680px; padding:150px 24px 100px; color:#fff; }
+/* Covers the small "Veo" AI-generation watermark burned into the bottom-right
+   corner of the source clip — same masking technique as wn-webting's video
+   hero, just tuned to Ellasa's dark palette instead of a light one. */
+.hero-watermark-mask{
+  position:absolute; right:0; bottom:0; z-index:2; pointer-events:none;
+  width:min(26%, 280px); height:min(22%, 200px);
+  min-width:140px; min-height:100px;
+  background:radial-gradient(circle at 100% 100%, var(--ink) 0%, var(--ink) 55%, rgba(46,46,46,0) 88%);
+}
+.hero-scrim{
+  position:absolute; inset:0; z-index:3; pointer-events:none;
+  background:linear-gradient(180deg, rgba(8,8,9,.58) 0%, rgba(8,8,9,.30) 40%, rgba(8,8,9,.84) 100%);
+}
+.hero-scrim-2{ position:absolute; inset:0; z-index:3; pointer-events:none; background:#0a0a0a; opacity:0; will-change:opacity; }
+.hero-content{ position:relative; z-index:5; max-width:680px; padding:0 24px; color:#fff; will-change:transform,opacity; }
 .hero-content .eyebrow{ margin-bottom:1rem; }
 .hero-badges{ display:flex; flex-wrap:wrap; gap:.8rem; margin-bottom:1.4rem; }
 .hero h1{ font-size:clamp(2.6rem,6vw,4.6rem); margin-top:.4rem; }
@@ -353,8 +369,8 @@ footer{ border-top:1px solid var(--line); padding:60px 0 40px; background:var(--
 @media (max-width:560px){
   .wrap{ padding:0 18px; }
   section:not(.hero){ padding:78px 0; }
-  .hero{ min-height:88vh; }
-  .hero-content{ padding:130px 20px 72px; }
+  .hero{ height:190vh; min-height:1180px; }
+  .hero-content{ padding:0 20px; }
   .services-grid{ grid-template-columns:1fr; }
   .benefit-grid{ grid-template-columns:1fr; }
   .gallery-grid{ grid-template-columns:1fr 1fr; grid-auto-rows:150px; }
@@ -368,5 +384,8 @@ footer{ border-top:1px solid var(--line); padding:60px 0 40px; background:var(--
 @media (prefers-reduced-motion:reduce){
   *{ transition-duration:.001ms !important; scroll-behavior:auto !important; }
   .reveal{ opacity:1; transform:none; }
-  .hero-media{ transform:none !important; }
+  .hero{ height:auto; min-height:0; }
+  .hero-stage{ position:relative; }
+  .hero-content,.hero-scrim-2{ transform:none !important; opacity:1 !important; }
+  .hero-scrim-2{ opacity:0 !important; }
 }

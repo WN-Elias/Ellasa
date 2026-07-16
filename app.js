@@ -1,7 +1,7 @@
 /* Ellasa Barbershop — interactions
    - scroll-reveal (.reveal -> .in)
    - magnetic buttons ([data-magnetic])
-   - hero parallax (simple background drift, not pinned)
+   - hero scroll-scrub (sticky product video: scroll position drives currentTime)
    - mobile nav toggle
    All motion is disabled under prefers-reduced-motion. */
 (function () {
@@ -35,27 +35,48 @@
     });
   }
 
-  /* ---------- hero parallax (subtle background drift) ---------- */
-  var heroMedia = document.getElementById('hero-media');
+  /* ---------- hero scroll-scrub (sticky video driven by scroll position) ---------- */
+  var video = document.getElementById('hero-video');
+  var content = document.getElementById('hero-content');
+  var scrim2 = document.getElementById('hero-scrim2');
   var heroSection = document.getElementById('top');
 
-  if (!reduce && heroMedia && heroSection) {
+  if (!reduce && video && content && scrim2 && heroSection) {
     var ticking = false;
+    var videoDuration = 0;
 
-    function renderParallax() {
+    video.addEventListener('loadedmetadata', function () {
+      videoDuration = video.duration || 0;
+    });
+
+    function renderHero() {
       ticking = false;
-      var rect = heroSection.getBoundingClientRect();
-      if (rect.bottom < 0 || rect.top > window.innerHeight) return;
-      heroMedia.style.transform = 'translateY(' + (window.scrollY * 0.15) + 'px)';
+      // progress 0 -> 1 across the scrollable height of the pinned hero stage
+      var travel = heroSection.offsetHeight - window.innerHeight;
+      if (travel <= 0) return;
+      var p = window.scrollY / travel;
+      if (p < 0) p = 0; else if (p > 1) p = 1;
+
+      // scroll position scrubs the video's playback position
+      if (videoDuration > 0) {
+        var t = p * videoDuration;
+        if (Math.abs(video.currentTime - t) > 0.01) video.currentTime = t;
+      }
+
+      // overlay darkens as the next section rises over the hero
+      scrim2.style.opacity = (p * 0.72).toFixed(3);
+      // headline fades and lifts away
+      content.style.opacity = (1 - Math.min(1, p * 1.35)).toFixed(3);
+      content.style.transform = 'translateY(' + (-p * 64) + 'px)';
     }
 
     function onScroll() {
-      if (!ticking) { ticking = true; requestAnimationFrame(renderParallax); }
+      if (!ticking) { ticking = true; requestAnimationFrame(renderHero); }
     }
 
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll, { passive: true });
-    renderParallax();
+    renderHero();
   }
 
   /* ---------- mobile nav toggle ---------- */
