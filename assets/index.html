@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ellasa Barbershop — Tradition trifft modernen Style</title>
+<meta name="description" content="Ellasa Barbershop: präzise Haarschnitte, saubere Fades und klassische Rasuren. Professionell, entspannt und ohne Termin — einfach vorbeikommen." />
+<!-- Link-only: verhindert, dass Suchmaschinen die Seite listen. Beim offiziellen Launch entfernen. -->
+<meta name="robots" content="noindex, nofollow" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Ellasa Barbershop — Tradition trifft modernen Style" />
+<meta property="og:description" content="Präzise Haarschnitte, saubere Fades und klassische Rasuren — professionell, entspannt und ohne Termin." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#top" class="brand" aria-label="Ellasa — Startseite">
+      <img class="brand-logo" src="assets/logo.svg" alt="Ellasa Logo" />
+      <span>Ellasa</span>
+    </a>
+    <nav class="nav-links" id="nav-links" aria-label="Hauptnavigation">
+      <a href="#ueber">Über uns</a>
+      <a href="#preise">Preise</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#bewertungen">Bewertungen</a>
+      <a href="#oeffnungszeiten">Öffnungszeiten</a>
+      <a href="#standort">Standort</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#top" class="btn btn-primary" data-magnetic><span>Jetzt vorbeikommen</span> <span class="btn-arrow">&rarr;</span></a>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Menü öffnen">
+        <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+        <svg class="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO (sticky, scroll-scrubbed product video) -->
+<section class="hero" id="top">
+  <div class="hero-stage">
+    <div class="hero-media" id="hero-media">
+      <!-- Scroll-scrubbed image sequence: scrolling through the hero swaps
+           assets/hero-frames/frame-NNN.jpg (see app.js). Plain <img>, not
+           <video> — reliable on every browser including mobile, since it's
+           just image loading with no decoder/autoplay/seeking involved.
+           assets/hero-barber.svg behind it is the instant-paint fallback
+           until the first frame has loaded. -->
+      <img class="hero-frame" id="hero-frame" src="assets/hero-frames/frame-001.jpg" alt="" aria-hidden="true" />
+    </div>
+    <!-- Masks the small "Veo" AI-generation watermark burned into the bottom-right corner of the source clip -->
+    <div class="hero-watermark-mask" aria-hidden="true"></div>
+    <div class="hero-scrim"></div>
+    <div class="hero-scrim-2" id="hero-scrim2"></div>
+
+    <div class="hero-content" id="hero-content">
+      <span class="eyebrow on-dark">Ellasa Barbershop</span>
+      <div class="hero-badges">
+        <span class="badge-walkin">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 4h3a2 2 0 0 1 2 2v14"/><path d="M2 20h3"/><path d="M13 20h9"/><path d="M10 12v.01"/><path d="M13 4.562v16.157a1 1 0 0 1-1.242.97L5 20V5.562a2 2 0 0 1 1.515-1.94l4-1A2 2 0 0 1 13 4.561Z"/></svg>
+          Keine Termine erforderlich
+        </span>
+      </div>
+      <h1>Tradition trifft modernen Style.</h1>
+      <p class="hero-sub">Präzise Haarschnitte, saubere Fades und klassische Rasuren – professionell, entspannt und ohne Termin.</p>
+      <div class="hero-actions">
+        <a href="#oeffnungszeiten" class="btn btn-primary" data-magnetic><span>Jetzt vorbeikommen</span> <span class="btn-arrow">&rarr;</span></a>
+        <a href="#preise" class="btn btn-light">Unsere Preise</a>
+      </div>
+    </div>
+
+    <div class="hero-scrollcue" aria-hidden="true">Scrollen<span></span></div>
+  </div>
+</section>
+
+<!-- ÜBER ELLASA -->
+<section id="ueber">
+  <div class="wrap">
+    <div class="intro-narrow reveal">
+      <span class="eyebrow">Über uns</span>
+      <!-- Inhalt folgt -->
+    </div>
+  </div>
+</section>
+
+<!-- PREISE -->
+<section id="preise">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Preise</span>
+      <h2>Faire Preise, klar und transparent.</h2>
+      <p>Platzhalter-Preise – werden vor dem Launch final abgestimmt.</p>
+    </div>
+    <div class="price-list reveal">
+      <div class="price-row">
+        <span class="price-name">Herrenhaarschnitt<small>Waschen, schneiden, stylen</small></span>
+        <span class="price-fill"></span>
+        <span class="price-amount">20 €</span>
+      </div>
+      <div class="price-row">
+        <span class="price-name">Bart trimmen<small>Konturiert &amp; in Form</small></span>
+        <span class="price-fill"></span>
+        <span class="price-amount">10 €</span>
+      </div>
+      <div class="price-row">
+        <span class="price-name">Haarschnitt + Bart<small>Komplettpaket</small></span>
+        <span class="price-fill"></span>
+        <span class="price-amount">28 €</span>
+      </div>
+      <div class="price-row">
+        <span class="price-name">Nassrasur<small>Klassisch mit Rasiermesser</small></span>
+        <span class="price-fill"></span>
+        <span class="price-amount">18 €</span>
+      </div>
+      <div class="price-row">
+        <span class="price-name">Konturen<small>Linien &amp; Übergänge</small></span>
+        <span class="price-fill"></span>
+        <span class="price-amount">7 €</span>
+      </div>
+      <div class="price-row">
+        <span class="price-name">Kinderhaarschnitt<small>bis 12 Jahre</small></span>
+        <span class="price-fill"></span>
+        <span class="price-amount">14 €</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section id="galerie">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Galerie</span>
+      <h2>Einblicke in unser Handwerk.</h2>
+      <p>Platzhalterbilder – werden gegen echte Fotos aus dem Shop ausgetauscht.</p>
+    </div>
+    <!-- Placeholder: swap assets/gallery-1.svg … gallery-6.svg for real photography -->
+    <div class="gallery-grid reveal">
+      <img class="gallery-item" src="assets/gallery-1.svg" alt="Platzhalter: Kamm-Motiv" loading="lazy" />
+      <img class="gallery-item" src="assets/gallery-2.svg" alt="Platzhalter: Scheren-Motiv" loading="lazy" />
+      <img class="gallery-item" src="assets/gallery-3.svg" alt="Platzhalter: Rasiermesser-Motiv" loading="lazy" />
+      <img class="gallery-item" src="assets/gallery-4.svg" alt="Platzhalter: Barber-Pole-Streifen" loading="lazy" />
+      <img class="gallery-item" src="assets/gallery-5.svg" alt="Platzhalter: Barbierstuhl-Silhouette" loading="lazy" />
+      <img class="gallery-item" src="assets/gallery-6.svg" alt="Platzhalter: Abstraktes Farbverlaufs-Panel" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<!-- KUNDENBEWERTUNGEN -->
+<section id="bewertungen">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">Bewertungen</span>
+      <h2>Was unsere Kunden sagen.</h2>
+    </div>
+    <div class="testimonial-grid">
+      <article class="testimonial-card reveal">
+        <svg class="quote-mark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg>
+        <div class="stars" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="quote">„Bester Fade der Stadt, und ich musste nie einen Termin machen. Einfach rein und in 20 Minuten fertig.“</p>
+        <div class="testimonial-author">
+          <span class="avatar">M.K.</span>
+          <span><b>Markus K.</b><span>Stammkunde</span></span>
+        </div>
+      </article>
+      <article class="testimonial-card reveal">
+        <svg class="quote-mark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg>
+        <div class="stars" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="quote">„Endlich ein Barbershop ohne Terminstress. Die Nassrasur war ein Erlebnis – absolute Empfehlung.“</p>
+        <div class="testimonial-author">
+          <span class="avatar">T.S.</span>
+          <span><b>Tim S.</b><span>Stammkunde</span></span>
+        </div>
+      </article>
+      <article class="testimonial-card reveal">
+        <svg class="quote-mark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg>
+        <div class="stars" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="quote">„Auch mit meinem Sohn waren wir super entspannt dran – geduldig geschnitten, top Ergebnis.“</p>
+        <div class="testimonial-author">
+          <span class="avatar">J.R.</span>
+          <span><b>Jan R.</b><span>Stammkunde</span></span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ÖFFNUNGSZEITEN -->
+<section id="oeffnungszeiten">
+  <div class="wrap">
+    <div class="hours-layout">
+      <div class="reveal">
+        <span class="eyebrow">Öffnungszeiten</span>
+        <h2>Wann du bei uns vorbeikommen kannst.</h2>
+        <table class="hours-table" style="margin-top:2rem">
+          <tr><td>Montag – Samstag</td><td>9:00 – 19:00 Uhr</td></tr>
+          <tr><td>Sonntag</td><td>geschlossen</td></tr>
+        </table>
+      </div>
+      <div class="callout callout-light reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <p><strong>Einfach vorbeikommen</strong> – wir arbeiten ohne Termin. Komm während unserer Öffnungszeiten vorbei, wir kümmern uns um dich.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STANDORT -->
+<section id="standort">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Standort</span>
+      <h2>So findest du uns.</h2>
+    </div>
+    <div class="location-layout">
+      <div class="location-info reveal">
+        <div class="row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+          <span><b>Adresse</b><span>Boecklerstr. 7, 21339 Lüneburg <em>(im Kaufland-Markt)</em></span></span>
+        </div>
+        <div class="row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+          <span><b>Telefon</b><span>0176 00 00 00 00 <em>(Platzhalter)</em></span></span>
+        </div>
+        <div class="row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+          <span><b>E-Mail</b><span>info@ellasa-barbershop.de <em>(Platzhalter)</em></span></span>
+        </div>
+      </div>
+      <div class="map-embed reveal">
+        <iframe src="https://www.google.com/maps?q=Boecklerstr.+7,+21339+L%C3%BCneburg&output=embed" title="Standort von Ellasa Barbershop" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a href="#top" class="brand" aria-label="Ellasa — Startseite">
+          <img class="brand-logo" src="assets/logo.svg" alt="Ellasa Logo" />
+          <span>Ellasa</span>
+        </a>
+        <p>Moderner Barbershop für präzise Haarschnitte, saubere Fades und klassische Rasuren – ohne Termin.</p>
+        <div class="foot-social">
+          <a href="#" rel="noopener" aria-label="Ellasa auf Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="#" rel="noopener" aria-label="Ellasa auf Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <h4>Navigation</h4>
+          <a href="#ueber">Über uns</a>
+          <a href="#preise">Preise</a>
+          <a href="#galerie">Galerie</a>
+          <a href="#bewertungen">Bewertungen</a>
+        </div>
+        <div class="foot-col">
+          <h4>Öffnungszeiten</h4>
+          <p>Mo – Sa: 9:00 – 19:00 Uhr</p>
+          <p>So: geschlossen</p>
+        </div>
+        <div class="foot-col">
+          <h4>Kontakt</h4>
+          <p>Boecklerstr. 7<br>21339 Lüneburg<br>(im Kaufland-Markt)</p>
+          <a href="mailto:info@ellasa-barbershop.de">info@ellasa-barbershop.de</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Ellasa Barbershop</span>
+      <span><a href="impressum.html">Impressum</a> &nbsp; <a href="datenschutz.html">Datenschutz</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
