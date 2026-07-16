@@ -51,15 +51,32 @@
     // ~12 scrub-updates/sec still reads as smooth motion but cuts the
     // decode load roughly 5x.
     var SEEK_INTERVAL_MS = 80;
+    var videoFailed = false;
+
+    // Safety net: if the video ever fails to decode/render — a hardware
+    // decoder rejecting the file, a network/data-saver mode blocking it,
+    // anything — hide it outright rather than leaving a black box on
+    // screen. .hero-media's own CSS background-image (the SVG) is right
+    // behind it and shows through the moment the video is hidden.
+    function fallbackToPoster() {
+      if (videoFailed) return;
+      videoFailed = true;
+      video.style.display = 'none';
+    }
+    video.addEventListener('error', fallbackToPoster);
+    var readyTimeout = setTimeout(function () {
+      if (video.readyState < 2) fallbackToPoster();
+    }, 4000);
 
     video.addEventListener('loadedmetadata', function () {
+      clearTimeout(readyTimeout);
       videoDuration = video.duration || 0;
       // Playing and immediately pausing "primes" the decoder so the very
       // first scroll-driven seek actually paints a frame instead of
       // staying on the poster image. Safe to autoplay: muted + playsinline.
       var playPromise = video.play();
       if (playPromise && playPromise.then) {
-        playPromise.then(function () { video.pause(); }).catch(function () {});
+        playPromise.then(function () { video.pause(); }).catch(fallbackToPoster);
       } else {
         video.pause();
       }
