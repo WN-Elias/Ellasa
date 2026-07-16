@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Platzhalter: Kamm-Motiv, hier später ein echtes Barbershop-Foto einsetzen">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#26282c"/>
+      <stop offset="1" stop-color="#0c0d0f"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#g1)"/>
+  <g transform="translate(240,220)" fill="none" stroke="#1F5FBF" stroke-width="10" stroke-linecap="round">
+    <rect x="0" y="0" width="320" height="46" rx="10"/>
+    <line x1="22" y1="46" x2="22" y2="180"/>
+    <line x1="70" y1="46" x2="70" y2="180"/>
+    <line x1="118" y1="46" x2="118" y2="180"/>
+    <line x1="166" y1="46" x2="166" y2="180"/>
+    <line x1="214" y1="46" x2="214" y2="180"/>
+    <line x1="262" y1="46" x2="262" y2="180"/>
+    <line x1="298" y1="46" x2="298" y2="180"/>
+  </g>
+</svg>

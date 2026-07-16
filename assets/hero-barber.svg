@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="Dunkle strukturierte Metall- und Betonoberfläche mit dezenten Lichtkegeln, Platzhalter für ein Barbershop-Foto">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0.35" y2="1">
+      <stop offset="0" stop-color="#0c0d0f"/>
+      <stop offset="0.42" stop-color="#26282c"/>
+      <stop offset="0.75" stop-color="#1a1b1e"/>
+      <stop offset="1" stop-color="#08090a"/>
+    </linearGradient>
+    <radialGradient id="beamBlue" cx="0.78" cy="0.06" r="0.62">
+      <stop offset="0" stop-color="#1F5FBF" stop-opacity="0.35"/>
+      <stop offset="0.45" stop-color="#1F5FBF" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="#1F5FBF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="beamWarm" cx="0.36" cy="-0.05" r="0.5">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="vig" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#000" stop-opacity="0.30"/>
+      <stop offset="0.45" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0.62"/>
+    </linearGradient>
+    <linearGradient id="vigSide" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#000" stop-opacity="0.48"/>
+      <stop offset="0.4" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0.22"/>
+    </linearGradient>
+    <pattern id="brushed" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(28)">
+      <rect width="6" height="6" fill="none"/>
+      <line x1="0" y1="0" x2="0" y2="6" stroke="#ffffff" stroke-opacity="0.028" stroke-width="1"/>
+    </pattern>
+    <filter id="soften" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+
+  <!-- base concrete / metal gradient -->
+  <rect width="1600" height="900" fill="url(#bgGrad)"/>
+  <rect width="1600" height="900" fill="url(#brushed)"/>
+
+  <!-- light kegel / beams -->
+  <rect width="1600" height="900" fill="url(#beamBlue)"/>
+  <rect width="1600" height="900" fill="url(#beamWarm)"/>
+  <polygon points="1180,-40 1620,-40 1420,760 980,560" fill="#ffffff" opacity="0.035"/>
+  <polygon points="1360,-60 1660,-60 1520,520 1260,380" fill="#1F5FBF" opacity="0.06"/>
+
+  <!-- soft smoke / fog -->
+  <ellipse cx="1080" cy="740" rx="420" ry="140" fill="#ffffff" opacity="0.05" filter="url(#soften)"/>
+  <ellipse cx="1300" cy="640" rx="300" ry="110" fill="#ffffff" opacity="0.04" filter="url(#soften)"/>
+  <ellipse cx="760" cy="820" rx="480" ry="120" fill="#ffffff" opacity="0.035" filter="url(#soften)"/>
+
+  <!-- faint barber-pole stripe accent, cropped at right edge -->
+  <g opacity="0.10">
+    <defs>
+      <pattern id="poleStripes" width="34" height="34" patternTransform="rotate(35)" patternUnits="userSpaceOnUse">
+        <rect width="34" height="34" fill="#ffffff"/>
+        <rect width="17" height="34" fill="#C62828"/>
+        <rect x="17" width="17" height="34" fill="#1F5FBF"/>
+      </pattern>
+    </defs>
+    <rect x="1480" y="80" width="140" height="740" rx="70" fill="url(#poleStripes)"/>
+  </g>
+
+  <!-- faint scissors line-art motif -->
+  <g transform="translate(150,560) rotate(-18)" opacity="0.09" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="0" cy="140" r="26"/>
+    <circle cx="70" cy="170" r="26"/>
+    <path d="M20 122 L230 -60"/>
+    <path d="M46 156 L230 -10"/>
+  </g>
+
+  <!-- faint comb line-art motif -->
+  <g transform="translate(1120,120)" opacity="0.07" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round">
+    <rect x="0" y="0" width="260" height="34" rx="8"/>
+    <line x1="14" y1="34" x2="14" y2="120"/>
+    <line x1="48" y1="34" x2="48" y2="120"/>
+    <line x1="82" y1="34" x2="82" y2="120"/>
+    <line x1="116" y1="34" x2="116" y2="120"/>
+    <line x1="150" y1="34" x2="150" y2="120"/>
+    <line x1="184" y1="34" x2="184" y2="120"/>
+    <line x1="218" y1="34" x2="218" y2="120"/>
+    <line x1="246" y1="34" x2="246" y2="120"/>
+  </g>
+
+  <!-- vignette for text legibility on the left -->
+  <rect width="1600" height="900" fill="url(#vigSide)"/>
+  <rect width="1600" height="900" fill="url(#vig)"/>
+</svg>

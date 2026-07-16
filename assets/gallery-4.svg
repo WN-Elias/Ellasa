@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Platzhalter: Barber-Pole-Streifen, hier später ein echtes Barbershop-Foto einsetzen">
+  <defs>
+    <pattern id="poleStripes" width="46" height="46" patternTransform="rotate(35)" patternUnits="userSpaceOnUse">
+      <rect width="46" height="46" fill="#f4f4f2"/>
+      <rect width="23" height="46" fill="#C62828"/>
+      <rect x="23" width="23" height="46" fill="#1F5FBF"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="600" fill="#1a1b1e"/>
+  <rect x="120" y="-40" width="560" height="680" fill="url(#poleStripes)" opacity="0.92"/>
+</svg>

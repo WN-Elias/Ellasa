@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Platzhalter: Barbierstuhl-Silhouette, hier später ein echtes Barbershop-Foto einsetzen">
+  <defs>
+    <linearGradient id="g5" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#08090a"/>
+      <stop offset="1" stop-color="#26282c"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#g5)"/>
+  <g transform="translate(280,120)" fill="none" stroke="#ffffff" stroke-opacity="0.85" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20 0 L220 0 L220 90 Q220 120 190 120 L50 120 Q20 120 20 90 Z"/>
+    <path d="M20 120 L0 220 L0 340"/>
+    <path d="M220 120 L240 220 L240 340"/>
+    <path d="M0 340 L240 340 L260 380 L-20 380 Z"/>
+    <line x1="120" y1="0" x2="120" y2="-40"/>
+    <circle cx="120" cy="380" r="70" stroke-width="7"/>
+  </g>
+</svg>
